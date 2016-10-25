@@ -1,6 +1,6 @@
-<h2>Create an Author</h2>
+<h2>Editing "<%= @author.name %>"</h2>
 
-<%= form_tag authors_path, method: "post" do %>
+<%= form_tag author_path(@author), method: "patch" do %>
   <% if @author.errors.any? %>
     <div id="error_explanation">
       <h3>There were some errors:</h3>
@@ -10,7 +10,7 @@
         <% end %>
       </ul>
     </div>
-  <% end %>
+  <% end%>
   <br>
   <div class="field <%= 'field_with_errors' if @author.errors[:name].any? %>">
     <%= label_tag "name", "Name" %>
@@ -22,10 +22,10 @@
     <%= text_field_tag "email", @author.email %>
   </div>
   <br>
-  <div class="field <%= 'field_with_errors' if @author.errors[:phone_number].any?%>">
+  <div class="field <%= 'field_with_errors' if @author.errors[:phone_number].any? %>">
     <%= label_tag "phone_number", "Phone Number" %>
     <%= text_field_tag "phone_number", @author.phone_number %>
   </div>
   <br>
-  <%= submit_tag "Create" %>
+  <%= submit_tag "Update" %>
 <% end %>
